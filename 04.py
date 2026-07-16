@@ -56,3 +56,4 @@ y = 5
 z = 6
 print(x * y * z)  # 120
 print(x)
+
