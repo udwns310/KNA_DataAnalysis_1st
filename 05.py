@@ -149,33 +149,33 @@
 # last_num = phone[7:]
 # print(basic_num, middle_num, last_num)
 
-# 실습 - len으로 길이 재기
-phone = "01012345678"
-print(len(phone))  # 11
+# # 실습 - len으로 길이 재기
+# phone = "01012345678"
+# print(len(phone))  # 11
 
-# 실습 - in 으로 포함 확인
-msg = "설비 고장 발생"
-print("고장" in msg)  # True
-print("정상" in msg)  # False
+# # 실습 - in 으로 포함 확인
+# msg = "설비 고장 발생"
+# print("고장" in msg)  # True
+# print("정상" in msg)  # False
 
-# 실습 - count로 개수 세기
-word = "a,b,c,d"
-print(word.count(","))  # 3 
+# # 실습 - count로 개수 세기
+# word = "a,b,c,d"
+# print(word.count(","))  # 3 
 
-# 실습 - find로 위치 찾기
-word = "a,b,c,d"
-print(word.find(","))  # 1
-print(word.find("x"))  # -1 (없으면 -1 반환)
+# # 실습 - find로 위치 찾기
+# word = "a,b,c,d"
+# print(word.find(","))  # 1
+# print(word.find("x"))  # -1 (없으면 -1 반환)
 
-# 실습 - startswith, endswith
-c_name = "sensor_log.csv"
-print(c_name.startswith("sensor"))  # True
-print(c_name.endswith(".csv"))  # True
+# # 실습 - startswith, endswith
+# c_name = "sensor_log.csv"
+# print(c_name.startswith("sensor"))  # True
+# print(c_name.endswith(".csv"))  # True
 
-# 실습 - ==로 대소문자 구분 비교
-label = "WARNING"
-print(label == "warning")  # False
-print(label == "WARNING")  # True 
+# # 실습 - ==로 대소문자 구분 비교
+# label = "WARNING"
+# print(label == "warning")  # False
+# print(label == "WARNING")  # True 
 
 
 
