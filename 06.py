@@ -155,3 +155,7 @@ text = "1,NORMAL,25.3"
 spl_text = text.split(",")
 final_text = spl_text[1].strip().lower() # normal
 print(final_text)
+
+machine = "PUMP_A"
+temp = 87
+print(f"설비 {machine} 온도 {temp}도") # PUMP_A의 현재 온도는 87도 입니다.
