@@ -105,3 +105,53 @@ print("[" + lowstp_str + "]") # [warning]
 str8 = "aaab 이렇게? cd"
 print(str8.strip("ab")) # b 이렇게? cd
 print(str8.strip("dbca")) # 이렇게? cd
+
+# ============================
+# ============================
+
+# replace - 특정 문자열을 다른 문자열로 바꾼다
+print("=== replace() ===")
+
+# 특정 문자열을 제거하거나 치환할 때 사용
+text = " 정 상 가 동 "
+print(text.replace(" ", "")) # 정상가동
+
+print("=== split() ===")
+# 문자열 자르기
+# 결과는 대괄호에 감싸진 "리스트"
+# 리스트는 순서가 있기 때문에 왼쪽에서부터 0으로 시작하는 인덱스 자동 생성
+
+drink = "에스프레소 아메리카노 카페라떼"
+print(drink.split()) # ['에스프레소', '아메리카노', '카페라떼']
+
+fruits = "딸기, 거봉, 키위, 사쿠란보"
+print(fruits.split(", ")) # ['딸기', '거봉', '키위', '사쿠란보']
+
+print("=== join() ===")
+print("-".join(fruits.split(", "))) # 딸기-거봉-키위-사쿠란보
+
+date = ["2026", "07", "27"]
+print("-".join(date)) # 2026-07-27
+
+pth = "python" # pyThon 으로 출력
+print
+
+text = "a,b,c,d"
+print(text.split(",")) # ['a', 'b', 'c', 'd']
+
+print("=== print 함수의 sep end ===")
+print("2026" , "07", "27", sep="-") # 2026-07-27
+# 공백 대신 sep 속성에 전달한 문자열이 삽입되어 출력됨
+print("2026" , "07", "27", sep="") # 20260727
+
+print("안녕", "하세", end="요") # 안녕하세요
+# end 속성에 전달한 문자열이 출력 후 마지막에 삽입됨
+print("안녕" + "하세" , end="요\n" ) # 안녕하세요
+
+date = "2025/01/15"
+print("-".join(date.split("/"))) # 2025-01-15
+
+text = "1,NORMAL,25.3"
+spl_text = text.split(",")
+final_text = spl_text[1].strip().lower() # normal
+print(final_text)
