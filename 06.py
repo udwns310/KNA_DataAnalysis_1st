@@ -37,10 +37,59 @@ f_name = "sensor_log.csv"
 print(f_name.startswith("sensor")) # True
 print(f_name.endswith(".csv")) # True
 
-
 # startswith() : 문자열이 특정 문자열로 시작하는지 확인
 # in과 차이 : in은 어디든 포함, startswith는 시작하는지 확인
 # 'data_log'에서 in은 True, startswith는 False
 
 # endswith() : 문자열이 특정 문자열로 끝나는지 확인
 # 파일명 같은거 확인할 때 많이 씀
+
+# =====================================================
+# =====================================================
+# =====================================================
+
+# 공백과 대소문자 정리
+
+# upper - 모두 대문자로 바꾼다
+print("=== upper() ===")
+text = "ready"
+upper_text = text.upper()
+print(upper_text) # READY
+
+# lower - 모두 소문자로 바꾼다
+print("=== lower() ===")
+text = "WARNING"
+lower_text = text.lower()
+print(lower_text) # warning
+
+# capitalize - 첫 글자만 대문자로 바꾼다, title()과 차이점 : title은 각 단어의 첫 글자를 대문자로 바꾼다
+print("=== capitalize() ===")
+text = "kim chul soo"
+capitalize_text = text.capitalize()
+print(capitalize_text) # Kim chul soo
+title_text = text.title()
+print(title_text) # Kim Chul Soo
+new = "It's a beautiful day"
+print(new.title()) # It'S A Beautiful Day
+
+print('ABC'.isupper()) # True
+print('abc'.islower()) # True
+print('Abc'.isupper()) # False
+
+fname = "Sensor_LOG.CSV"
+fname = fname.lower()
+print(fname.startswith("sensor")) # True
+print(fname.endswith(".csv")) # True
+
+text = " 대기 "
+print(text.lstrip())
+print(text.rstrip())
+
+word = "python"
+i = word.index("t")        
+result = word[:i] + word[i:i+1].upper() + word[i+1:]
+print(result)  # pyThon
+
+word = "python"
+
+print(word[:2] + word[2].upper() + word[3:])
