@@ -90,6 +90,18 @@ i = word.index("t")
 result = word[:i] + word[i:i+1].upper() + word[i+1:]
 print(result)  # pyThon
 
-word = "python"
+str5 = "=정상=============="
+print(str5.strip("=")) # 정상  
 
-print(word[:2] + word[2].upper() + word[3:])
+str6 = "===정===상====="
+print(str6.strip("=")) # 정===상
+
+str = "         Warning        "
+low_str = str.lower()
+print("[" + low_str + "]") # [         warning        ]
+lowstp_str = str.lower().strip()
+print("[" + lowstp_str + "]") # [warning]
+
+str8 = "aaab 이렇게? cd"
+print(str8.strip("ab")) # b 이렇게? cd
+print(str8.strip("dbca")) # 이렇게? cd
