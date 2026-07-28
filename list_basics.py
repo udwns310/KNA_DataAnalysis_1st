@@ -245,10 +245,7 @@ x = raw_data.pop(1)
 print(x)           # 29
 del raw_data[0]
 print(raw_data)   # [31, 27, 29]
-
-
-
-
+ 
 
 
 # =====================================================================
@@ -273,7 +270,7 @@ print(results.count("정상"))  # 3 (몇 개)
 print(results.index("이상"))  # 1 (몇 번째)
 
 # [정리] 리스트 메서드 한눈에 정리
-# 용도 | 메서드                | 하는 일
+# 용도 | 메서드                | 하는 일'
 # 추가 | append/insert/extend | 끝/위치/묶음 잇기
 # 제거 | remove/pop/del        | 값/위치+반환/위치
 # 정렬 | sort/reverse          | 크기순/뒤집기
