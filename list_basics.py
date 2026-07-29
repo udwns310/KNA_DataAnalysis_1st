@@ -21,7 +21,7 @@ print(machines)  # ['펌프', '모터', '압축기']
 
 # [개념] 리스트에 담는 여러 종류의 값
 # - 숫자, 글자, 참거짓 값을 한 리스트에 섞어 담기도 가능
-# 
+#
 # - 다만 분석 실무에서는 같은 종류의 값만 담는 경우가 대부분
 mixed = [1, "온도", True]
 print(type(mixed[2]))  # <class 'bool'>
@@ -40,17 +40,19 @@ print(len(results))  # 0
 # 비유      | 받침대    | 서랍장
 
 
-print("\n===================== 실습 1. 나만의 데이터 리스트 만들기 =====================")
+print(
+    "\n===================== 실습 1. 나만의 데이터 리스트 만들기 ====================="
+)
 # 목표: 여러 값을 대괄호와 쉼표로 리스트에 담고, 출력과 len() 으로 개수 확인하기
 # 단계: ① 하루 측정 온도 5개를 리스트로 저장 -> ② print로 전체 출력
 #      -> ③ len으로 값 개수를 출력해 5개인지 확인 -> ④ 빈 리스트를 만들어 len이 0인지 확인
 # 예상 결과: [25, 26, 29, 30, 35] / 5 / [] / 0
 daily_temps = [25, 26, 29, 30, 35]
-print(daily_temps)         # [25, 26, 29, 30, 35]
-print(len(daily_temps))    # 5
+print(daily_temps)  # [25, 26, 29, 30, 35]
+print(len(daily_temps))  # 5
 empty = []
-print(empty)                # []
-print(len(empty))           # 0
+print(empty)  # []
+print(len(empty))  # 0
 
 
 # =====================================================================
@@ -81,8 +83,8 @@ print("\n===================== 실습 2. 인덱스로 값 꺼내기 ============
 #      -> ③ 세 번째 값을 꺼내 출력 -> ④ 마지막 값을 음수 인덱스로 꺼내 출력
 # 예상 결과: 22 / 27 / 33
 hourly_temps = [22, 24, 27, 29, 26, 33]
-print(hourly_temps[0])   # 22
-print(hourly_temps[2])   # 27
+print(hourly_temps[0])  # 22
+print(hourly_temps[2])  # 27
 print(hourly_temps[-1])  # 33
 
 
@@ -94,7 +96,7 @@ print("\n===================== 실습 3. 인덱스로 꺼낸 값 계산하기 ==
 output = [150, 88, 76, 140, 99, 60]
 first = output[0]
 last = output[-1]
-print(first + last)        # 210
+print(first + last)  # 210
 print((first + last) / 2)  # 105.0
 
 # 배고프고 심심하고 하루가 너무 짧은듯 길다 수업 으어어ㅓ 하면서 듣고 나면 저녁 먹고 으어어 하면 운도하고 으어어 공부하고 으어어 잠자기.. 이게 맞나
@@ -107,15 +109,15 @@ temps = [25, 26, 24, 28, 27]
 print(temps[1:4])  # [26, 24, 28]  (인덱스 1,2,3만 -> 4는 미포함, 4-1=3개)
 
 # [개념] 슬라이싱 시작·끝 생략
-print(temps[:3])   # [25, 26, 24]  처음부터
-print(temps[2:])   # [24, 28, 27]  끝까지
-print(temps[:])    # 전체
+print(temps[:3])  # [25, 26, 24]  처음부터
+print(temps[2:])  # [24, 28, 27]  끝까지
+print(temps[:])  # 전체
 print(temps[-3:])  # [24, 28, 27]  뒤에서 3개
 
 # [개념] 슬라이싱 간격 step - 콜론을 하나 더 붙여 간격 지정
 temps2 = [25, 26, 24, 28, 27, 23]
 print(temps2[0:6:2])  # [25, 24, 27]  2칸씩
-print(temps2[::2])    # [25, 24, 27]  전체에서 2칸씩
+print(temps2[::2])  # [25, 24, 27]  전체에서 2칸씩
 
 # [정리] 인덱싱·슬라이싱 구조 정리
 # - 콜론이 있으면 슬라이싱(결과: 리스트), 없으면 인덱싱(결과: 값 하나)
@@ -130,11 +132,13 @@ print("\n===================== 실습 4. 슬라이싱으로 구간 자르기 ===
 #      -> ③ 뒤에서 3개를 슬라이싱해 출력 -> ④ 잘라낸 앞 구간에 len을 적용해 3개인지 확인
 # 예상 결과: [31, 29, 26] / [27, 33, 19] / 3
 readings = [31, 29, 26, 24, 22, 20, 23, 27, 33, 19]
-print(readings[:3])         # [31, 29, 26]
-print(readings[-3:])        # [27, 33, 19]
-print(len(readings[:3]))    # 3
+print(readings[:3])  # [31, 29, 26]
+print(readings[-3:])  # [27, 33, 19]
+print(len(readings[:3]))  # 3
 
-print("\n===================== 실습 5. 데이터를 두 구간으로 나누기 =====================")
+print(
+    "\n===================== 실습 5. 데이터를 두 구간으로 나누기 ====================="
+)
 # 목표: 데이터를 앞·뒤 두 구간으로 나누고 각 구간을 따로 다루기
 # 단계: ① 12개 값을 리스트로 저장 -> ② 앞 6개를 슬라이싱해 first에 담고 출력
 #      -> ③ 뒤 6개를 슬라이싱해 second에 담고 출력 -> ④ 두 구간에 각각 len을 적용해 6개씩인지 확인
@@ -142,9 +146,9 @@ print("\n===================== 실습 5. 데이터를 두 구간으로 나누기
 hours = [2, 3, 4, 5, 4, 3, 5, 6, 7, 6, 4, 2]
 first = hours[:6]
 second = hours[6:]
-print(first)                      # [2, 3, 4, 5, 4, 3]
-print(second)                     # [5, 6, 7, 6, 4, 2]
-print(len(first), len(second))    # 6 6
+print(first)  # [2, 3, 4, 5, 4, 3]
+print(second)  # [5, 6, 7, 6, 4, 2]
+print(len(first), len(second))  # 6 6
 
 
 # =====================================================================
@@ -158,9 +162,9 @@ print(temps)  # [25, 26, 99, 28, 27]
 
 # [개념] 값이 들어있는지 확인 in - 참·거짓으로 확인
 machines = ["펌프", "모터", "압축기"]
-print("모터" in machines)       # True
-print("밸브" in machines)       # False
-print("밸브" not in machines)   # True
+print("모터" in machines)  # True
+print("밸브" in machines)  # False
+print("밸브" not in machines)  # True
 
 
 print("\n===================== 실습 6. 값 찾아 바꾸기 =====================")
@@ -169,11 +173,11 @@ print("\n===================== 실습 6. 값 찾아 바꾸기 ==================
 #      -> ③ 그 값의 위치를 index로 찾아 올바른 값 24를 대입 -> ④ 전체를 출력하고 in으로 다시 확인
 # 예상 결과: True / [23, 21, 25, 29, 22] / False
 sensor_temps = [23, 21, 250, 29, 22]
-print(250 in sensor_temps)      # True
+print(250 in sensor_temps)  # True
 i = sensor_temps.index(250)
 sensor_temps[i] = 25
-print(sensor_temps)              # [23, 21, 25, 29, 22]
-print(250 in sensor_temps)       # False
+print(sensor_temps)  # [23, 21, 25, 29, 22]
+print(250 in sensor_temps)  # False
 
 
 # =====================================================================
@@ -193,7 +197,7 @@ print(temps)  # [25, 26, 99, 24, 27]
 # [개념] extend - 다른 리스트의 값들을 풀어서 이어붙임
 morning = [25, 26, 24]
 afternoon = [28, 27, 30]
-morning.extend(afternoon) 
+morning.extend(afternoon)
 print(morning)  # [25, 26, 24, 28, 27, 30]
 
 
@@ -224,7 +228,7 @@ print(machines)  # ['펌프', '압축기', '모터']
 temps = [25, 26, 24, 28, 27]
 removed = temps.pop(2)
 print(removed)  # 24 (꺼낸 값)
-print(temps)    # [25, 26, 28, 27]
+print(temps)  # [25, 26, 28, 27]
 
 # [개념] del - 인덱스로 삭제하되 값을 돌려주지 않음 (점 없이 사용)
 temps = [25, 26, 24, 28, 27]
@@ -240,12 +244,11 @@ print("\n===================== 실습 8. 잘못된 값 제거하기 ============
 # 예상 결과: [30, 29, 31, 27, 29] / 꺼낸 값 29 / [31, 27, 29]
 raw_data = [30, 29, 777, 31, 27, 29]
 raw_data.remove(777)
-print(raw_data)   # [30, 29, 31, 27, 29]
+print(raw_data)  # [30, 29, 31, 27, 29]
 x = raw_data.pop(1)
-print(x)           # 29
+print(x)  # 29
 del raw_data[0]
-print(raw_data)   # [31, 27, 29]
- 
+print(raw_data)  # [31, 27, 29]
 
 
 # =====================================================================
@@ -254,6 +257,8 @@ print(raw_data)   # [31, 27, 29]
 
 # [개념] sort - 작은 값부터(오름차순), reverse=True면 큰 값부터
 temps = [27, 24, 30, 22, 26]
+new_temps = temps
+new_temps.append(25)
 temps.sort()
 print(temps)  # [22, 24, 26, 27, 30]
 temps.sort(reverse=True)
@@ -284,11 +289,11 @@ print("\n===================== 실습 9. 정렬하고 탐색하기 =============
 # 예상 결과: [21, 29, 29, 31, 33, 34, 35] / [35, 34, 33, 31, 29, 29, 21] / 2 / 4
 temp_record = [33, 29, 35, 21, 31, 29, 34]
 temp_record.sort()
-print(temp_record)              # [21, 29, 29, 31, 33, 34, 35]
+print(temp_record)  # [21, 29, 29, 31, 33, 34, 35]
 temp_record.reverse()
-print(temp_record)              # [35, 34, 33, 31, 29, 29, 21]
-print(temp_record.count(29))    # 2
-print(temp_record.index(29))    # 4
+print(temp_record)  # [35, 34, 33, 31, 29, 29, 21]
+print(temp_record.count(29))  # 2
+print(temp_record.index(29))  # 4
 
 
 # =====================================================================
@@ -299,22 +304,22 @@ print(temp_record.index(29))    # 4
 # -> A. 자동으로 한 칸씩 당겨짐. 리스트는 항상 "빈 자리 없이" 순서를 유지하므로
 #       인덱스 2를 지우면 원래 인덱스 3이던 값이 새 인덱스 2가 됨
 temps = [25, 26, 24, 28, 27]
-del temps[1]              # 26 삭제
-print(temps)               # [25, 24, 28, 27]
-print(temps[1])            # 24  (원래 인덱스 2였던 값이 1로 당겨짐)
+del temps[1]  # 26 삭제
+print(temps)  # [25, 24, 28, 27]
+print(temps[1])  # 24  (원래 인덱스 2였던 값이 1로 당겨짐)
 
 # Q2. sort()를 쓰면 원본이 바뀌나요, 정렬된 새 리스트가 만들어지나요?
 # -> A. sort()는 원본 자체를 바꾸고 돌려주는 값은 없음(None)
 #       원본은 그대로 두고 정렬된 "새 리스트"가 필요하면 내장 함수 sorted() 사용
 temps = [27, 24, 30]
 result = temps.sort()
-print(result)               # None (반환값 없음)
-print(temps)                # [24, 27, 30] (원본이 바뀜)
+print(result)  # None (반환값 없음)
+print(temps)  # [24, 27, 30] (원본이 바뀜)
 
 temps = [27, 24, 30]
-new_temps = sorted(temps)   # 원본은 그대로, 정렬된 새 리스트를 돌려줌
-print(temps)                 # [27, 24, 30] (원본 그대로)
-print(new_temps)             # [24, 27, 30]
+new_temps = sorted(temps)  # 원본은 그대로, 정렬된 새 리스트를 돌려줌
+print(temps)  # [27, 24, 30] (원본 그대로)
+print(new_temps)  # [24, 27, 30]
 
 # Q3. remove()로 리스트에 없는 값을 지우려고 하면 어떻게 되나요?
 # -> A. ValueError 발생. remove/index는 값이 없으면 오류가 나므로
@@ -323,19 +328,19 @@ machines = ["펌프", "모터"]
 if "밸브" in machines:
     machines.remove("밸브")
 else:
-    print("밸브 없음 - 제거 생략")   # 밸브 없음 - 제거 생략
+    print("밸브 없음 - 제거 생략")  # 밸브 없음 - 제거 생략
 
 # Q4. 서로 다른 자료형이 섞인 리스트도 인덱싱·슬라이싱이 똑같이 되나요?
 # -> A. 됨. 인덱싱·슬라이싱은 "값의 종류"가 아니라 "순서(위치)"만 보고 동작
 mixed = [1, "온도", True, 3.5]
-print(mixed[1])     # 온도
-print(mixed[1:3])   # ['온도', True]
+print(mixed[1])  # 온도
+print(mixed[1:3])  # ['온도', True]
 
 # Q5. 리스트 안에 리스트도 넣을 수 있나요? (표처럼 행·열이 있는 데이터)
 # -> A. 가능. 대괄호를 두 번 써서 [바깥 인덱스][안쪽 인덱스]로 접근
-grid = [[25, 26], [27, 28]]   # 2행 2열 형태의 2차원 리스트
-print(grid[0])       # [25, 26]  바깥 인덱스로 행 하나(리스트) 꺼내기
-print(grid[0][1])    # 26        안쪽 인덱스로 그 안의 값 하나 꺼내기
+grid = [[25, 26], [27, 28]]  # 2행 2열 형태의 2차원 리스트
+print(grid[0])  # [25, 26]  바깥 인덱스로 행 하나(리스트) 꺼내기
+print(grid[0][1])  # 26        안쪽 인덱스로 그 안의 값 하나 꺼내기
 
 # Q6. print(data.extend(...))처럼 바로 출력하면 왜 None이 나오나요?
 # -> A. extend()는 원본 리스트 "자체"를 수정만 할 뿐, 수정된 리스트를 돌려주지(return) 않음
@@ -343,14 +348,14 @@ print(grid[0][1])    # 26        안쪽 인덱스로 그 안의 값 하나 꺼�
 #       그 결과를 print()로 감싸거나 변수에 담으면 None이 찍힘
 data = [1, 2, 3]
 print(data.extend([4, 5]))  # None  (extend의 반환값)
-print(data)                  # [1, 2, 3, 4, 5]  (원본은 이미 바뀌어 있음)
+print(data)  # [1, 2, 3, 4, 5]  (원본은 이미 바뀌어 있음)
 
 # -> 같은 이유로 append/insert/remove/sort/reverse도 전부 None을 반환
 #    "리스트를 바꾸는 메서드" = 원본을 직접 고치고 끝, 새 값을 돌려주지 않음
 nums = [3, 1, 2]
 result = nums.append(9)
-print(result)   # None  (append도 반환값 없음)
-print(nums)     # [3, 1, 2, 9]  (바뀐 건 nums 쪽)
+print(result)  # None  (append도 반환값 없음)
+print(nums)  # [3, 1, 2, 9]  (바뀐 건 nums 쪽)
 
 # [퀴즈] 아래 코드의 출력 결과를 먼저 예상해보기
 # fruits = ["사과", "배"]
@@ -372,9 +377,9 @@ print(nums)     # [3, 1, 2, 9]  (바뀐 건 nums 쪽)
 # - 리스트 하나만 있으면 min/max/sum 내장 함수로 한 줄에 계산 가능
 # - 평균은 sum(리스트) / len(리스트) 로 구함
 temps = [25, 26, 24, 28, 27]
-print(min(temps))               # 24 (최솟값)
-print(max(temps))               # 28 (최댓값)
-print(sum(temps))               # 130 (합계)
+print(min(temps))  # 24 (최솟값)
+print(max(temps))  # 28 (최댓값)
+print(sum(temps))  # 130 (합계)
 print(sum(temps) / len(temps))  # 26.0 (평균)
 
 
@@ -398,16 +403,16 @@ for idx, m in enumerate(machines):
 # - a = b 는 리스트를 복사하는 게 아니라 같은 리스트를 함께 가리키게 만듦
 # - 한쪽을 바꾸면 다른 쪽도 같이 바뀜 (원본 훼손 주의)
 original = [1, 2, 3]
-linked = original         # 복사가 아니라 같은 리스트를 가리킴
+linked = original  # 복사가 아니라 같은 리스트를 가리킴
 linked.append(4)
-print(original)           # [1, 2, 3, 4]  원본도 함께 바뀜
+print(original)  # [1, 2, 3, 4]  원본도 함께 바뀜
 
 # 진짜 복사본이 필요하면 copy() 사용
 original = [1, 2, 3]
 safe_copy = original.copy()
 safe_copy.append(4)
-print(original)           # [1, 2, 3]      원본은 그대로
-print(safe_copy)          # [1, 2, 3, 4]
+print(original)  # [1, 2, 3]      원본은 그대로
+print(safe_copy)  # [1, 2, 3, 4]
 
 
 # =====================================================================
@@ -417,8 +422,8 @@ print(safe_copy)          # [1, 2, 3, 4]
 # - [식 for 값 in 리스트] 형태, 뒤에 if를 붙이면 조건에 맞는 값만 추림
 temps = [25, 26, 24, 28, 27]
 
-doubled = [t * 2 for t in temps]           # 각 값을 2배로
+doubled = [t * 2 for t in temps]  # 각 값을 2배로
 print(doubled)  # [50, 52, 48, 56, 54]
 
-above_25 = [t for t in temps if t > 25]    # 25 초과인 값만
+above_25 = [t for t in temps if t > 25]  # 25 초과인 값만
 print(above_25)  # [26, 28, 27]

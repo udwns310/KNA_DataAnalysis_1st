@@ -24,7 +24,7 @@ print(clean_email)  # hong@company.com
 # 아이디는 find로 @ 위치를 찾아 슬라이싱
 at_pos = clean_email.find("@")
 user_id = clean_email[:at_pos]
-domain = clean_email[at_pos + 1:]
+domain = clean_email[at_pos + 1 :]
 print(f"아이디: {user_id}, 도메인: {domain}")  # 아이디: hong, 도메인: company.com
 
 
@@ -65,7 +65,9 @@ print(items)  # ['사과', '배', '감']
 print(", ".join(items))  # 사과, 배, 감
 
 
-print("\n===================== 컬럼명 정리 사례 - 데이터 분석 연결 =====================")
+print(
+    "\n===================== 컬럼명 정리 사례 - 데이터 분석 연결 ====================="
+)
 # 컬럼명은 공백 제거·소문자·기호 정리로 다듬기
 raw_col = " Sensor Measurement 3 "
 clean_col = raw_col.strip().lower().replace(" ", "_")
@@ -99,6 +101,7 @@ print(f"[{code}] 상태: {status} / 측정값: {value:.1f}")
 #   나중에 "패턴이 너무 다양해서 하나하나 처리하기 힘들다"는 느낌이 들 때
 #   정규표현식을 학습하면 됨 (추후 학습 예정)
 import re
+
 phone_mixed = "010.1234.5678"
 digits_only = re.sub(r"\D", "", phone_mixed)  # 숫자가 아닌 문자를 전부 제거
 print(digits_only)  # 01012345678

@@ -33,8 +33,8 @@ print(f"평균 {(a + b + c) / 3}")
 # - f-string은 중괄호 두 개로 끝나서 실수가 적음
 # - 실무에서는 문장을 만들 때 거의 항상 f-string 사용
 name, temp = "PUMP_A", 87
-print("설비 " + name + " 온도 " + str(temp) + "도")   # + 연결: 번거롭고 실수 잦음
-print(f"설비 {name} 온도 {temp}도")                    # f-string: 짧고 명확
+print("설비 " + name + " 온도 " + str(temp) + "도")  # + 연결: 번거롭고 실수 잦음
+print(f"설비 {name} 온도 {temp}도")  # f-string: 짧고 명확
 
 
 # [개념] f-string 소수점 자리 지정
@@ -43,9 +43,9 @@ print(f"설비 {name} 온도 {temp}도")                    # f-string: 짧고 �
 # - :.1f 는 첫째 자리, :.3f 는 셋째 자리
 # - 측정값·평균·비율 정리에 유용
 value = 25.34567
-print(f"측정값 {value}")       # 25.34567 (자릿수 지정 없음)
-print(f"측정값 {value:.2f}")   # 25.35
-print(f"측정값 {value:.1f}")   # 25.3
+print(f"측정값 {value}")  # 25.34567 (자릿수 지정 없음)
+print(f"측정값 {value:.2f}")  # 25.35
+print(f"측정값 {value:.1f}")  # 25.3
 
 
 print("\n===================== 실습 3. 소수점 자릿수 지정하기 =====================")
@@ -79,5 +79,5 @@ eqp_num = 7
 print(f"EQP-{eqp_num:03d}")  # EQP-007
 
 # 5) 디버깅용 = 옵션 - 변수명과 값을 함께 출력 (파이썬 3.8+)
-print(f"{value=}")        # value=25.34567
-print(f"{value=:.2f}")    # value=25.35
+print(f"{value=}")  # value=25.34567
+print(f"{value=:.2f}")  # value=25.35
