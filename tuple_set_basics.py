@@ -155,7 +155,7 @@ sensor_readings = [
 for name, value in sensor_readings:
     print(name, value)
 
-threshold = 90
+threshold = 90 # 임계값 기준 변수 선언
 for name, value in sensor_readings:
     if value > threshold:
         print(name, "경고")
@@ -168,7 +168,7 @@ print("\n===================== 실습 3. 중첩 튜플로 센서 위치 관리�
 # 예상 결과: 각 센서 이름·위치 출력 / x≤5 센서만: 모터온도, 펌프압력
 located_sensors = [
     ("모터온도", 78, (3, 5)),
-    ("베어링진동", 0.5, (7, 2)),
+    ("베어링진동", 0.5, (7, 2)),    
     ("펌프압력", 95, (4, 8)),
 ]
 for name, value, pos in located_sensors:
@@ -283,8 +283,8 @@ print("\n===================== 실습 4. 셋으로 중복 센서 제거하기 ==
 # 목표: 중복이 있는 센서 ID 기록을 셋으로 바꿔 중복을 제거하고, 정렬 출력·개수 확인
 # 단계: ① 중복이 있는 센서 ID 리스트를 저장 -> ② set으로 변환해 중복을 제거
 #      -> ③ sorted로 정렬 출력하고 len으로 종류 수 확인
-# 예상 결과: ['S01', 'S02', 'S03'] / 종류 수: 3
-id_logs = ["S01", "S02", "S01", "S03", "S02"]
+# 예상 결과: ['WQR_01', 'WQR_03', 'WQR_05', 'WQR_06'] / 종류 수: 4
+id_logs = ["WQR_01", "WQR_01", "WQR_01", "WQR_01", "WQR_06", "WQR_06", "WQR_03", "WQR_05" ]
 unique_ids = set(id_logs)
 print(sorted(unique_ids))
 print("종류 수:", len(unique_ids))
@@ -308,10 +308,10 @@ print("\n===================== 실습 6. 두 시점의 이벤트 센서 추적�
 # 단계: ① 어제와 오늘의 이상 센서 ID를 각각 셋으로 저장 -> ② difference로 오늘만 있는 신규 이상 구하기
 #      -> ③ intersection으로 두 날 모두 있는 지속 이상 구하기
 # 예상 결과: 신규 이상: {'S05'} / 지속 이상: {'S02', 'S03'}
-prior_day = {"S01", "S02", "S03"}
-current_day = {"S02", "S03", "S05"}
-print(current_day.difference(prior_day))
-print(current_day.intersection(prior_day))
+day_30 = {"S01", "S02", "S03"}
+day_31 = {"S02", "S03", "S05"}
+print(day_31.difference(day_30))
+print(day_31.intersection(day_30))
 
 
 # =====================================================================
