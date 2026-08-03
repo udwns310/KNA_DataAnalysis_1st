@@ -59,7 +59,6 @@ if count_danger > 0:
 else:
     print("✅ 전 설비 안정")
 
-
 # (설비명, 온도, 진동)
 
 # 판정 기준
