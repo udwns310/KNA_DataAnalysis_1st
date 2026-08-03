@@ -47,8 +47,8 @@ sensor_list =["온도,78", "압력,90", "진동,0.5"]
 new_sensor_dict = {}
 for sensor in sensor_list:
     name, value = sensor.split(",")
-    new_sensor_dict[name] = name
-    new_sensor
+    new_sensor_dict[name] = float(value)
+print(new_sensor_dict)  # {'온도': 78.0, '압력': 90.0, '진동': 0.5}
 
 print("\n===================== 실습 8. 센서 데이터 통합 정리 =====================")
 sensor_measure_dict = {"온도": 90, "압력": 98, "진동": 92.5}
