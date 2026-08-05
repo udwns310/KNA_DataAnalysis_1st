@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(powershell -Command \"Get-ChildItem -Recurse '종합실습/module_prac' | Select-Object FullName\")",
+      "Bash(powershell -Command \"Get-ChildItem 'practice_data' | Select-Object Name\")"
     ]
   }
 }

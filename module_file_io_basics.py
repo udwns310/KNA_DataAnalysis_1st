@@ -112,7 +112,6 @@ print(abs(-3))  # 3 (절댓값도 math 없이 바로 사용)
 # [개념] random 모듈 - randint는 양 끝 포함, choice는 무작위 선택
 import random
 
-print(random.random())  # 0~1 사이 무작위 실수 (1은 포함되지 않음)
 print(random.randint(1, 10))  # 1~10 중 무작위 정수 (1과 10도 포함)
 print(random.choice(["정상", "경고", "위험"]))  # 셋 중 무작위 (실행마다 다름)
 
@@ -127,6 +126,7 @@ print(random.choice(["정상", "경고", "위험"]))  # 셋 중 무작위 (실�
 # [개념] datetime 모듈 - 앞 datetime은 모듈 이름, 뒤 datetime은 그 안의 도구
 import datetime
 
+# datetime 모듈 안의 datetime 클래스 안의 now() 메서드로 현재 시각을 가져옴
 now2 = datetime.datetime.now()
 print(now2)  # 예: 2026-08-05 09:00:00.123456
 
@@ -149,9 +149,9 @@ print(
 # 단계: ① random 모듈을 import -> ② randint로 무작위 센서값을 만들어 출력
 #      -> ③ math 모듈로 그 값을 가공(제곱근) -> ④ 다시 실행하면 값이 달라지는지 확인
 # 예상 결과: (매번 다른) 무작위 값과 그 제곱근
-fake_reading = random.randint(1, 100)
-print(fake_reading)  # 예: 57 (실행마다 다름)
-print(math.sqrt(fake_reading))  # 그 값의 제곱근
+rand_sensor = random.randint(1, 100)
+print(rand_sensor)  # 예: 57 (실행마다 다름)
+print(math.sqrt(rand_sensor))  # 그 값의 제곱근
 
 
 # =====================================================================
@@ -182,6 +182,9 @@ import os
 cwd = os.getcwd()
 print(cwd)  # 현재 폴더의 절대경로
 
+file_list = os.listdir()
+for file_name in file_list:
+    print(file_name)  # 현재 폴더 안 파일·폴더 이름을 모두 보여줌
 
 # [설정] 이 파일의 os·csv 실습이 항상 똑같이 재현되도록, 강의의 data/08_press.csv와
 # 같은 구조(설비ID·시각·진동X·진동Y·전류·상태)를 가진 표본 CSV를 코드로 직접 만들어 둔다
@@ -192,11 +195,11 @@ sample_path = os.path.join(practice_dir, "08_press_sample.csv")
 with open(sample_path, "w", encoding="utf-8", newline="") as f:
     f.write("설비ID,시각,진동X,진동Y,전류,상태\n")
     f.write("PRESS-01,09:00:00,0.30,0.28,78.2,0\n")
-    f.write("PRESS-01,09:01:00,0.31,0.29,81.5,0\n")
-    f.write("PRESS-01,09:02:00,0.33,0.30,95.4,1\n")
-    f.write("PRESS-01,09:03:00,0.29,0.27,76.8,0\n")
-    f.write("PRESS-01,09:04:00,0.34,0.31,92.1,1\n")
-    f.write("PRESS-01,09:05:00,0.30,0.28,80.0,0\n")
+    f.write("PRESS-02,09:01:00,0.31,0.29,81.5,0\n")
+    f.write("PRESS-03,09:02:00,0.33,0.30,95.4,1\n")
+    f.write("PRESS-04,09:03:00,0.29,0.27,76.8,0\n")
+    f.write("PRESS-05,09:04:00,0.34,0.31,92.1,1\n")
+    f.write("PRESS-06,09:05:00,0.30,0.28,80.0,0\n")
 
 
 # [개념] os.listdir로 폴더 들여다보기 - 폴더 안 파일·폴더 이름을 리스트로 반환
