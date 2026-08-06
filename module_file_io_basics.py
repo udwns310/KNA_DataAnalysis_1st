@@ -191,7 +191,7 @@ for file_name in file_list:
 practice_dir = "practice_data"
 os.makedirs(practice_dir, exist_ok=True)
 
-sample_path = os.path.join(practice_dir, "08_press_sample.csv")
+sample_path = os.path.join(practice_dir, "08_press.csv")
 with open(sample_path, "w", encoding="utf-8", newline="") as f:
     f.write("설비ID,시각,진동X,진동Y,전류,상태\n")
     f.write("PRESS-01,09:00:00,0.30,0.28,78.2,0\n")
@@ -215,7 +215,7 @@ for name in files_in_dir:
 
 # [개념] os.path.exists() - 경로에 파일이 있으면 True, 없으면 False
 # [개념] os.path.join() - 폴더명과 파일명을 합쳐 완전한 경로로 만듦 (OS에 맞는 구분자를 자동으로 넣어줌)
-check_path = os.path.join(practice_dir, "08_press_sample.csv")
+check_path = os.path.join(practice_dir, "08_press.csv")
 if os.path.exists(check_path):
     print("파일 있음:", check_path)
 
@@ -360,10 +360,12 @@ print("\n===================== 실습 8. with open으로 파일에 쓰기 ======
 # 단계: ① with open으로 파일을 쓰기 모드 w, utf-8로 열기 -> ② write로 내용을 쓰기(줄을 나눌 땐 줄바꿈 기호)
 #      -> ③ with 블록이 끝나면 파일이 자동으로 닫힘 -> ④ r 모드로 다시 열어 쓴 내용을 확인
 # 예상 결과: 쓴 내용이 그대로 읽힘
-log_path = os.path.join(practice_dir, "check_log.txt")
+import os
+log_path = os.path.join("practice_data", "check_log.txt")
 with open(log_path, "w", encoding="utf-8") as f:
     f.write("1번 설비 점검 완료\n")
     f.write("2번 설비 점검 완료\n")
+    f.write("3번 설비 점검 완료\n")
 
 with open(log_path, "r", encoding="utf-8") as f:
     print(f.read())
@@ -375,10 +377,10 @@ print("\n===================== 실습 9. a 모드로 기록 이어붙이기 ====
 #      -> ③ w 모드와 달리 기존 내용이 보존됨을 확인 -> ④ r 모드로 열어 전체가 쌓였는지 확인
 # 예상 결과: 기존 내용 + 새 기록이 함께 남음
 with open(log_path, "a", encoding="utf-8") as f:
-    f.write("3번 설비 점검 완료\n")
+    f.write("4번 설비 점검 완료\n")
 
 with open(log_path, "r", encoding="utf-8") as f:
-    print(f.read())  # 1·2번 기록에 3번 기록이 이어 붙어 총 세 줄
+    print(f.read())  # 1·2·3·4번 기록이 이어 붙어 총 네 줄
 
 
 # =====================================================================
@@ -387,7 +389,7 @@ with open(log_path, "r", encoding="utf-8") as f:
 
 # [개념] csv가 제조 데이터의 기본 형식인 이유 - 쉼표로 구분된 표 형식 텍스트
 # - 표를 텍스트로 옮긴 형태 - 행은 줄바꿈, 열은 쉼표로 나뉨
-# - 표준이 된 이유는 가볍고·호환성 높고·단순하다는 세 가지 - 엑셀·파이썬·DB 어디서나 읽고 씀
+# - 표준이 된 이유는 가볍고·호환성 높고·단순하다는 세 가지 - 엑셀·파이  썬·DB 어디서나 읽고 씀
 
 # [정리] csv 구조 - 헤더(열 제목) · 행(한 건 기록) · 열(값 종류) · 구분자(쉼표)
 # 읽기 전에 첫 줄이 헤더인지 확인하는 습관이 필요
@@ -442,7 +444,7 @@ print("\n===================== 실습 11. csv.writer로 CSV 쓰기 =============
 # 단계: ① csv를 import -> ② with open으로 w·utf-8·newline 옵션으로 열기
 #      -> ③ csv.writer로 writer 객체를 만들기 -> ④ writerow로 헤더와 각 데이터 행을 쓰기
 # 예상 결과: 새 CSV에 헤더+데이터 행이 저장됨
-check_result_path = os.path.join(practice_dir, "check_result.csv")
+check_result_path = os.path.join("practice_data", "check_result.csv")
 with open(check_result_path, "w", encoding="utf-8", newline="") as f:
     check_writer = csv.writer(f)
     check_writer.writerow(["설비ID", "전류"])
