@@ -177,6 +177,11 @@ print(safe_divide("100", 0))  # 안내 후 None
 # - 부품명별로 측정값·기준값·상한/하한을 기록 - 실제 현장 데이터에는 빈칸(결측)·형식 오류가 섞여 있음
 # - 측정값이 비거나 문자·범위 밖이면 형변환·인덱스 오류가 남 - try·except로 불량 줄을 건너뛰고 견고하게 처리
 
+# if-else문과는 다른 else. 성공했을 때만 실행되는 코드 (왜 와이. try를 하고 except문에 안 걸리면 else로 간다. 이거임)
+# finally는 그럼 뭐겠어. 마침내 라는 뜻처럼 성공하든 실패하든 무조건 마지막에 실행된다.
+# 파일 닫기처럼 반드시 해야하는 일처럼 여겨진다. 앞에서 어떤 데서 오셨든 상관없고, fianlly 문을 실행시키고 try문을 마감해주세요.
+# 꼼꼼한 개발자를 나누는 기준이 되기도 한다
+
 # [개념] else와 finally - 지난 시간에 배운 try/except에 두 형제가 더 붙음
 # - else는 조건문의 else와 같은 단어로, try에서 예외가 하나도 발생하지 않았을 때만 실행됨
 # - finally는 '마지막으로'라는 뜻 그대로, 성공하든 실패하든 무조건 마지막에 실행됨
@@ -325,6 +330,43 @@ print(demo_total, demo_count)  # 244.8 4
 # - continue 역할: 이번 회차를 멈추고 다음 회차로 넘어가라는 명령 ('이 줄 건너뛰고 다음 줄로')
 # - try 위치: 반복문 안쪽에 두어야 불량 줄만 건너뜀 - 바깥에 두면 첫 불량에서 전체가 중단됨
 # - 불량 기록: 나중에 어떤 데이터가 불량이었는지 점검할 수 있도록 줄 번호를 모아두면 좋음
+
+# [강사님께 질문하기] continue가 없어도 반복문은 어차피 다음 값으로 계속 넘어가지
+# 않나요? 왜 굳이 continue를 써줘야 하나요?
+# -> 답변: 반복문 자체는 continue 없이도 다음 회차로 넘어감 - 맞는 말임. 하지만 continue의
+#    진짜 역할은 "반복을 계속 돌게 하는 것"이 아니라 "이번 회차의 남은 코드를 건너뛰는 것".
+#    except 아래에 그 값을 이어서 쓰는 코드(합계에 더하기, 출력하기 등)가 있다면, continue가
+#    없을 때 그 코드가 실패한 값이 아니라 "직전 회차에 성공했던 값"을 조용히 재사용해버림 -
+#    변수가 새로 대입되지 않았을 뿐 여전히 메모리에 남아있기 때문. 아래 실습으로 직접 확인
+
+# [실습] continue를 빼면 어떤 문제가 생기는지 직접 확인
+buggy_list = ["123", "456", "영크크", "32", "53"]
+for text in buggy_list:
+    try:
+        my_number = int(text)
+    except ValueError:
+        print(f"'{text}'는 숫자로 바꿀 수 없습니다.")
+        # continue를 일부러 빼봄
+    else:
+        print(f"'{text}'는 숫자로 바꿀 수 있습니다.")
+    print(my_number, type(my_number))
+# 출력: 123 / 456 / 456(!) / 32 / 53
+# "영크크"는 실패했는데도 직전 회차("456")의 my_number가 그대로 남아있어서 456이 또
+# 출력됨 - 마치 "영크크"가 456으로 정상 변환된 것처럼 보이는 잘못된 기록이 남음
+
+# [퀴즈] 아래 리스트로 위와 같은 코드(continue 없이)를 돌리면 무슨 일이 벌어질까?
+# no_continue_list = ["영크크", "10", "20"]
+# for text in no_continue_list:
+#     try:
+#         my_number = int(text)
+#     except ValueError:
+#         print(f"'{text}'는 숫자로 바꿀 수 없습니다.")
+#     else:
+#         print(f"'{text}'는 숫자로 바꿀 수 있습니다.")
+#     print(my_number)
+# 정답: 첫 번째 값부터 실패라서 NameError
+# ('영크크'는 실패 -> my_number가 이전에 단 한 번도 만들어진 적이 없어서
+#  print(my_number)에서 존재하지 않는 이름을 참조 -> NameError)
 
 
 print("\n===================== 실습 5. 반복문에서 불량 줄 건너뛰기 =====================")
@@ -506,6 +548,52 @@ print(validate_reading("NG"))  # 안내 후 0.0
 # -> A. 실행됨. finally는 함수가 어떤 경로로 끝나든(정상 return이든 예외든) 반드시
 #       마지막에 실행되도록 설계된 블록이라, return으로 함수를 빠져나가려는 순간에도
 #       finally를 먼저 실행한 뒤에 실제로 함수를 빠져나감
+
+# Q4. finally에서 쓸 변수는 except 안에서 초기화하는 게 나을까, try 앞에서 미리
+#     초기화하는 게 나을까?
+# -> A. 둘 다 가능하지만 안전성은 다름.
+#    - except 안에서만 초기화: try가 성공하면 실제 값, 실패하면 그 except가 넣은 기본값이
+#      들어감. 하지만 except가 여러 개면 각 except마다 빠짐없이 넣어줘야 하고, 예상 못 한
+#      예외 타입이 와서 그 except에 안 걸리면 여전히 finally에서 NameError가 남
+#    - try 앞에서 미리 초기화: 성공하든, 예상한 예외든, 심지어 못 잡은 예외든 변수가 이미
+#      존재하므로 finally에서 절대 NameError가 나지 않음 - 더 안전한 기본 선택
+#    실무 팁: 기본값은 0보다 None이 나을 때가 많음. 0은 "진짜 0값"과 "실패해서 넣은
+#    기본값"을 구분 못 하지만, None은 나중에 `if temp is not None:`으로 성공·실패를
+#    명확히 구분할 수 있음
+def demo_pre_init(text):
+    temp = None  # try 앞에서 미리 초기화 - 실패 여부를 구분하는 sentinel 값
+    try:
+        temp = float(text)
+    except ValueError:
+        print(f"'{text}' 변환 실패")
+    finally:
+        if temp is not None:
+            print(temp * 2)
+        else:
+            print("계산 불가 (변환 실패)")
+
+demo_pre_init("31.0")  # 62.0
+demo_pre_init("영크크")  # 변환 실패 / 계산 불가 (변환 실패)
+
+# [퀴즈] 아래 코드에서 두 번째 호출은 무슨 일이 벌어질까? (except가 엉뚱한 예외를 잡고 있음)
+# def risky(text):
+#     try:
+#         temp = float(text)
+#     except TypeError:  # 일부러 ValueError가 아닌 다른 예외만 잡음
+#         temp = 0
+#     finally:
+#         print(temp * 2)
+#
+# risky("10")
+# risky("abc")
+# 정답:
+# 20.0
+# NameError: name 'temp' is not defined
+# (float("abc")는 ValueError를 내는데 except는 TypeError만 잡고 있어서 못 잡음
+#  -> temp 대입 자체가 실패해 변수가 아예 안 생김 -> finally의 print(temp*2)가
+#  존재한 적 없는 temp를 참조하려다 NameError. except 안에서만 초기화하는 방식의
+#  약점이 바로 이것 - try 앞에서 미리 초기화했다면 이 상황에서도 안전했을 것)
+
 
 # [퀴즈] 아래 코드의 출력 결과를 먼저 예상해보기
 # def test(text):
