@@ -420,7 +420,7 @@ with open(sample_path, "r", encoding="utf-8") as f:
 
 # [개념] csv.writer 구조 - csv.reader의 정확히 반대, 리스트를 행으로 써 줌
 # with open을 w 모드로 열되 newline='' 옵션을 더함
-result_path = os.path.join(practice_dir, "result_sample.csv")
+result_path = os.path.join("practice_data", "result_sample.csv")
 with open(result_path, "w", encoding="utf-8", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(["시각", "설비"])
