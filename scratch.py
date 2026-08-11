@@ -311,3 +311,31 @@
 
 
 # dtype, shape ... pandas에서 또 나옴
+
+import numpy as np
+
+table = np.array([[72, 2.3], [95, 6.8]])
+base = np.array([70, 2.0])
+print(table - base)
+
+print("=" * 50)
+
+v = np.array([70, 95, 71, 88, 73])
+print(v > 85)
+
+# Boolean indexing
+# 불리언 배열로 조건에 맞는 값만 골라내기
+print(v[v > 85])  # [95 88]
+
+
+# np.where() 함수
+print(np.where(v > 85, 1, 0))  # (array([1, 3]),) - 조건에 맞는 값들의 인덱스 반환
+
+# 다중 조건 결합
+print(v)
+v_step1 = v[v > 70]
+print(v_step1)
+v_step2 = v_step1[v_step1 < 90]
+print(v_step2)
+v_mixed = v[(v > 70) & (v < 90)]
+print(v_mixed)
