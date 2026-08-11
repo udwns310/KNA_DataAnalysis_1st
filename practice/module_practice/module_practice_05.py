@@ -4,7 +4,7 @@
 import os
 from datetime import datetime
 
-folder = "practice_data"
+folder = os.path.join("data", "module_practice")
 file_count = len(os.listdir(folder))
 
 now = datetime.now()

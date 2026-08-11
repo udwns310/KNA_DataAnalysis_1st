@@ -5,7 +5,7 @@ import os
 
 print(os.getcwd())  # 현재 작업 폴더 경로
 
-folder = "practice_data"
+folder = os.path.join("data", "module_practice")
 files = os.listdir(folder)
 
 for file in files:

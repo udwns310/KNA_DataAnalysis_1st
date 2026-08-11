@@ -3,7 +3,7 @@
 # =====================================================================
 import os
 
-folder = "practice_data"
+folder = os.path.join("data", "module_practice")
 files = os.listdir(folder)
 
 csv_files = []

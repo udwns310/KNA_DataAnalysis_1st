@@ -224,7 +224,7 @@ report_measurement("abc")  # 변환 실패 / 처리 종료
 
 import os
 
-exc_dir = "exception_practice"
+exc_dir = os.path.join("data", "exception_practice")
 os.makedirs(exc_dir, exist_ok=True)
 
 

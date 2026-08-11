@@ -188,7 +188,7 @@ for file_name in file_list:
 
 # [설정] 이 파일의 os·csv 실습이 항상 똑같이 재현되도록, 강의의 data/08_press.csv와
 # 같은 구조(설비ID·시각·진동X·진동Y·전류·상태)를 가진 표본 CSV를 코드로 직접 만들어 둔다
-practice_dir = "practice_data"
+practice_dir = os.path.join("data", "module_practice")
 os.makedirs(practice_dir, exist_ok=True)
 
 sample_path = os.path.join(practice_dir, "08_press.csv")
@@ -361,7 +361,7 @@ print("\n===================== 실습 8. with open으로 파일에 쓰기 ======
 #      -> ③ with 블록이 끝나면 파일이 자동으로 닫힘 -> ④ r 모드로 다시 열어 쓴 내용을 확인
 # 예상 결과: 쓴 내용이 그대로 읽힘
 import os
-log_path = os.path.join("practice_data", "check_log.txt")
+log_path = os.path.join("data", "module_practice", "check_log.txt")
 with open(log_path, "w", encoding="utf-8") as f:
     f.write("1번 설비 점검 완료\n")
     f.write("2번 설비 점검 완료\n")
@@ -420,7 +420,7 @@ with open(sample_path, "r", encoding="utf-8") as f:
 
 # [개념] csv.writer 구조 - csv.reader의 정확히 반대, 리스트를 행으로 써 줌
 # with open을 w 모드로 열되 newline='' 옵션을 더함
-result_path = os.path.join("practice_data", "result_sample.csv")
+result_path = os.path.join("data", "module_practice", "result_sample.csv")
 with open(result_path, "w", encoding="utf-8", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(["시각", "설비"])
@@ -444,7 +444,7 @@ print("\n===================== 실습 11. csv.writer로 CSV 쓰기 =============
 # 단계: ① csv를 import -> ② with open으로 w·utf-8·newline 옵션으로 열기
 #      -> ③ csv.writer로 writer 객체를 만들기 -> ④ writerow로 헤더와 각 데이터 행을 쓰기
 # 예상 결과: 새 CSV에 헤더+데이터 행이 저장됨
-check_result_path = os.path.join("practice_data", "check_result.csv")
+check_result_path = os.path.join("data", "module_practice", "check_result.csv")
 with open(check_result_path, "w", encoding="utf-8", newline="") as f:
     check_writer = csv.writer(f)
     check_writer.writerow(["설비ID", "전류"])
