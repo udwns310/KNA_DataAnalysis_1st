@@ -366,3 +366,16 @@
 import pandas as pd
 
 df = pd.read_csv("data/13_diecasting_small.csv")
+df.info()
+
+df_sub1 = df[df["비스킷두께"] >= 13]
+df_sub1.info()  # 6 entries
+
+df_sub2 = df[df["사이클타임"] >= 25]
+df_sub2.info()  # 6 entries
+
+df_both = df[(df["비스킷두께"] >= 13) & (df["사이클타임"] >= 25)]
+df_both.info()  # 5 entries
+
+df_either = df[(df["비스킷두께"] >= 13) | (df["사이클타임"] >= 25)]
+df_either.info()  # 7 entries
