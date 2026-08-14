@@ -340,4 +340,29 @@
 # v_mixed = v[(v > 70) & (v < 90)]
 # print(v_mixed)
 
+# # 단일 컬럼 선택
+# import pandas as pd
+
+# df = pd.read_csv("data/13_diecasting_small.csv")
+# df.info()
+
+# df_sub = df["형체력"]
+# df_sub.info()
+
+# loc, iloc 사용
+# import pandas as pd
+
+# df = pd.read_csv("data/13_diecasting_shot.csv")
+# s = df.loc[0]
+# s2 = df.loc[0:2]
+# print(s)
+# print(s2)
+
+# df_sub2 = df.loc[0:2, ["품질등급", "형체력"]]
+# df_sub2.info()
+# print(df_sub2)
+
+# Boolean Series 코드
 import pandas as pd
+
+df = pd.read_csv("data/13_diecasting_small.csv")
