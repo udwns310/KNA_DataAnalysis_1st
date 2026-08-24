@@ -1,19 +1,14 @@
 import pandas as pd
 
-inj = pd.read_csv('data/15_01_사출성형_공정.csv', encoding='utf-8')
+df = pd.read_csv('data/15_02_사출성형_공정.csv', encoding='utf-8')
 
 # 실습 8. 제거 vs 대체 비교
 
-ratio = inj.isna().sum() / len(inj) * 100
-over_40 = ratio[ratio > 40].index.tolist()
-base = inj.drop(columns=over_40)
+base = df.drop(columns=['최대사출속도', '감압시간'])
+print(base.shape)  # (250, 20)
 
-removed_version = base.dropna()
-print(removed_version.shape)
+removed = base.dropna()
+print(removed.shape)  # (110, 20)
 
-filled_version = base.copy()
-for col in filled_version.columns:
-    if filled_version[col].isna().sum() > 0 and pd.api.types.is_numeric_dtype(filled_version[col]):
-        filled_version[col] = filled_version[col].fillna(filled_version[col].median())
-print(filled_version.shape)               # (250, 20)
-print(filled_version.isna().sum().sum())  # 0
+filled = base.fillna(base.median(numeric_only=True))
+print(filled.shape, filled.isna().sum().sum())  # (250, 20) 0

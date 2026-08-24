@@ -1,13 +1,17 @@
 import pandas as pd
 
-inj = pd.read_csv('data/15_01_사출성형_공정.csv', encoding='utf-8')
+df = pd.read_csv('data/15_02_사출성형_공정.csv', encoding='utf-8')
 
 # 실습 5. fillna 평균·중앙값 대체
 
-mean_v = inj['사출압력'].mean()
-median_v = inj['사출압력'].median()
-print(round(mean_v, 3), round(median_v, 3))  # 1.338 1.34
+print(df['최대사출압'].isna().sum())  # 60
 
-filled_by_mean = inj['사출압력'].fillna(mean_v)
-filled_by_median = inj['사출압력'].fillna(median_v)
-print(filled_by_mean.isna().sum(), filled_by_median.isna().sum())  # 0 0
+mean = df['최대사출압'].mean()
+median = df['최대사출압'].median()
+print(round(mean, 2), round(median, 2))
+
+df['최대사출압'] = df['최대사출압'].fillna(mean)
+print(df['최대사출압'].isna().sum())  # 0
+
+df['최대사출압'] = df['최대사출압'].fillna(median)
+print(df['최대사출압'].isna().sum())  # 0
