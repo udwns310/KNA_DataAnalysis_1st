@@ -1,0 +1,19 @@
+tag,equipment,physical_qty,indicator,summary,unit,direction,install_location
+MTR01_VIB_H,1번 모터,진동,속도,RMS,mm/s,수평,구동측 베어링 하우징
+MTR01_VIB_V,1번 모터,진동,속도,RMS,mm/s,수직,구동측 베어링 하우징
+MTR01_VIB_A,1번 모터,진동,속도,RMS,mm/s,축방향,구동측 베어링 하우징
+MTR01_VIB_ACC,1번 모터,진동,가속도,PEAK,g,수평,구동측 베어링 하우징
+MTR01_CURRENT,1번 모터,전류,전류,순시값,A,해당없음,모터 제어반 전류 변성기
+MTR01_TEMP,1번 모터,온도,온도,순시값,degC,해당없음,구동측 베어링 매입 측온저항체
+MTR01_RPM,1번 모터,회전수,회전수,순시값,rpm,해당없음,축 단부 회전수 센서
+PMP01_VIB_H,1번 펌프,진동,속도,RMS,mm/s,수평,구동측 베어링 하우징
+PMP01_VIB_V,1번 펌프,진동,속도,RMS,mm/s,수직,구동측 베어링 하우징
+PMP01_VIB_A,1번 펌프,진동,속도,RMS,mm/s,축방향,구동측 베어링 하우징
+PMP01_VIB_ACC,1번 펌프,진동,가속도,PEAK,g,수평,구동측 베어링 하우징
+PMP01_CURRENT,1번 펌프,전류,전류,순시값,A,해당없음,펌프 제어반 전류 변성기
+PMP01_PRESS_SUC,1번 펌프,압력,압력,순시값,bar,해당없음,펌프 흡입 배관
+PMP01_FLOW,1번 펌프,유량,유량,순시값,L/min,해당없음,토출 배관 유량계
+FAN01_VIB_H,1번 팬,진동,속도,RMS,mm/s,수평,구동측 베어링 하우징
+FAN01_CURRENT,1번 팬,전류,전류,순시값,A,해당없음,팬 제어반 전류 변성기
+FAN01_TEMP,1번 팬,온도,온도,순시값,degC,해당없음,구동측 베어링 표면
+CMP01_PRESS_DIS,1번 압축기,압력,압력,순시값,bar,해당없음,압축기 토출 배관
